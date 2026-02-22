@@ -1,9 +1,10 @@
-/* Masquer elements Streamlit inutiles */
+/* Masquer éléments Streamlit inutiles */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
 .stDeployButton {display: none;}
 [data-testid="stToolbar"] {display: none;}
+[data-testid="stDecoration"] {display: none;}
 
 /* Titres */
 h1, h2, h3 {
@@ -45,4 +46,29 @@ a[href^="https"]::before {
 .stMarkdown a img,
 [data-testid="stMarkdownContainer"] a img {
     display: none !important;
+}
+
+/* --- Bouton retour en haut --- */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #004b87;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.scroll-top:hover {
+    background-color: #003366;
+    color: white;
 }

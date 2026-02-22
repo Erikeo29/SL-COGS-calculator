@@ -48,8 +48,12 @@ DATA_PATH = os.path.join(ROOT_DIR, "data")
 ASSETS_PATH = os.path.join(ROOT_DIR, "assets")
 CSS_PATH = os.path.join(ASSETS_PATH, "style.css")
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 VERSION_DATE = "Feb 2026"
+VERSION_NOTES = {
+    "fr": "Correction typographie FR, bouton retour en haut",
+    "en": "FR typography fix, scroll-to-top button",
+}
 
 # ─── Color palette ──────────────────────────────────────────────────────────────
 COLORS = {
@@ -66,27 +70,27 @@ TRANSLATIONS = {
         # Sidebar / Nav
         "sidebar_title": "COGS Calculator",
         "nav_header": "Navigation",
-        "gen_header": "General",
-        "study_header": "Etudes",
+        "gen_header": "Général",
+        "study_header": "Études",
         "annex_header": "Annexes",
         "gen_pages": ["Accueil", "Simulateur COGS"],
-        "study_pages": ["Analyse de sensibilite", "Scenarios what-if"],
-        "annex_pages": ["Methodologie", "A propos"],
-        "lang_fr": "Francais",
+        "study_pages": ["Analyse de sensibilité", "Scénarios what-if"],
+        "annex_pages": ["Méthodologie", "À propos"],
+        "lang_fr": "Français",
         "lang_en": "English",
         "load_sample": "Charger l'exemple",
-        "load_sample_help": "Capteur electrochimique medical (5 etapes)",
-        "version_info": "v{version} - {date}",
+        "load_sample_help": "Capteur électrochimique médical (5 étapes)",
+        "version_info": "**Revision {version}** {date} — {notes} — © Eric QUEAU — Licence MIT",
         # Global params
-        "global_params": "Parametres globaux",
+        "global_params": "Paramètres globaux",
         "volume": "Volume annuel",
         "currency": "Devise",
-        "nb_steps": "Nombre d'etapes",
-        "step": "Etape",
+        "nb_steps": "Nombre d'étapes",
+        "step": "Étape",
         # BOM
         "bom_title": "Nomenclature (BOM)",
         "component": "Composant",
-        "qty": "Quantite",
+        "qty": "Quantité",
         "price": "Prix unitaire",
         "scrap_rate": "Taux de rebut (%)",
         "add_component": "Ajouter composant",
@@ -94,37 +98,37 @@ TRANSLATIONS = {
         # Process
         "process_title": "Process",
         "uph": "UPH nominal",
-        "availability": "Disponibilite (%)",
+        "availability": "Disponibilité (%)",
         "performance": "Performance (%)",
         "yield": "Rendement / Yield (%)",
         "effective_uph": "UPH effectif",
         "oee": "OEE",
         # Costs
-        "costs_title": "Couts",
-        "nb_operators": "Nombre d'operateurs",
+        "costs_title": "Coûts",
+        "nb_operators": "Nombre d'opérateurs",
         "dl_rate": "Taux DL (devise/h)",
         "voh_rate": "Taux VOH (devise/h)",
         "foh_total": "FOH total (devise/an)",
         # Results
-        "results_title": "Resultats",
-        "cogs_per_unit": "COGS / unite",
+        "results_title": "Résultats",
+        "cogs_per_unit": "COGS / unité",
         "rty": "RTY",
-        "units_to_start": "Unites a lancer",
-        "scrap_cost": "Cout rebut / unite",
+        "units_to_start": "Unités à lancer",
+        "scrap_cost": "Coût rebut / unité",
         "total_cogs": "COGS total",
-        "detail_table": "Detail par etape",
-        "cost_buildup": "Buildup des couts par etape",
-        "cost_breakdown": "Repartition globale des couts",
+        "detail_table": "Détail par étape",
+        "cost_buildup": "Buildup des coûts par étape",
+        "cost_breakdown": "Répartition globale des coûts",
         # Detail table columns
-        "col_step": "Etape",
-        "col_material": "Materiel",
-        "col_dl": "Main d'oeuvre (DL)",
+        "col_step": "Étape",
+        "col_material": "Matériel",
+        "col_dl": "Main d'œuvre (DL)",
         "col_voh": "VOH",
         "col_foh": "FOH",
-        "col_cost_added": "Cout ajoute",
+        "col_cost_added": "Coût ajouté",
         "col_yield": "Yield",
-        "col_yielded_cost": "Cout cumule (yielded)",
-        "col_scrap_cost": "Cout rebut",
+        "col_yielded_cost": "Coût cumulé (yielded)",
+        "col_scrap_cost": "Coût rebut",
         # Price / Margin
         "price_margin_title": "Calculateur prix / marge",
         "calc_mode": "Mode de calcul",
@@ -133,35 +137,35 @@ TRANSLATIONS = {
         "target_margin": "Marge cible (%)",
         "selling_price": "Prix de vente",
         "margin_result": "Marge",
-        "price_result": "Prix de vente calcule",
+        "price_result": "Prix de vente calculé",
         "unit_profit": "Profit unitaire",
         # Sensitivity
-        "sensitivity_title": "Analyse de sensibilite",
-        "sensitivity_desc": "Impact d'une variation de ±10% de chaque parametre sur le COGS/unite.",
-        "tornado_title": "Tornado chart - Top 15 parametres",
-        "param_name": "Parametre",
-        "impact": "Impact sur COGS/unite",
+        "sensitivity_title": "Analyse de sensibilité",
+        "sensitivity_desc": "Impact d'une variation de ±10% de chaque paramètre sur le COGS/unité.",
+        "tornado_title": "Tornado chart - Top 15 paramètres",
+        "param_name": "Paramètre",
+        "impact": "Impact sur COGS/unité",
         "variation": "Variation",
         # Scenarios
-        "scenarios_title": "Scenarios what-if",
-        "scenarios_desc": "Comparez jusqu'a 3 scenarios avec la configuration de base.",
-        "nb_scenarios": "Nombre de scenarios",
-        "scenario": "Scenario",
+        "scenarios_title": "Scénarios what-if",
+        "scenarios_desc": "Comparez jusqu'à 3 scénarios avec la configuration de base.",
+        "nb_scenarios": "Nombre de scénarios",
+        "scenario": "Scénario",
         "base": "Base",
-        "scenario_name": "Nom du scenario",
-        "scenario_comparison": "Comparaison des scenarios",
-        "scenario_param": "Parametre a modifier",
-        "scenario_step_select": "Etape concernee",
+        "scenario_name": "Nom du scénario",
+        "scenario_comparison": "Comparaison des scénarios",
+        "scenario_param": "Paramètre à modifier",
+        "scenario_step_select": "Étape concernée",
         "scenario_new_value": "Nouvelle valeur",
         "add_modification": "Ajouter une modification",
-        "scenario_detail": "Detail du scenario",
+        "scenario_detail": "Détail du scénario",
         "scenario_delta": "Delta vs base",
-        "all_steps": "Toutes les etapes",
+        "all_steps": "Toutes les étapes",
         # Misc
-        "no_data": "Aucune donnee chargee. Chargez l'exemple depuis la barre laterale.",
-        "data_loaded": "Donnees chargees avec succes !",
+        "no_data": "Aucune donnée chargée. Chargez l'exemple depuis la barre latérale.",
+        "data_loaded": "Données chargées avec succès !",
         "export_json": "Exporter (JSON)",
-        "step_name": "Nom de l'etape",
+        "step_name": "Nom de l'étape",
     },
     "en": {
         # Sidebar / Nav
@@ -177,7 +181,7 @@ TRANSLATIONS = {
         "lang_en": "English",
         "load_sample": "Load example",
         "load_sample_help": "Electrochemical medical sensor (5 steps)",
-        "version_info": "v{version} - {date}",
+        "version_info": "**Revision {version}** {date} — {notes} — © Eric QUEAU — Licence MIT",
         # Global params
         "global_params": "Global parameters",
         "volume": "Annual volume",
@@ -322,7 +326,7 @@ def sample_to_session(sample: dict) -> None:
     st.session_state.steps_data = []
     for step in steps:
         step_entry = {
-            "name": step.get("name", {"fr": "Etape", "en": "Step"}),
+            "name": step.get("name", {"fr": "Étape", "en": "Step"}),
             "uph": step.get("uph", 60),
             "availability": step.get("availability", 0.90),
             "performance": step.get("performance", 0.85),
@@ -683,6 +687,9 @@ if os.path.exists(CSS_PATH):
     css = load_custom_css(CSS_PATH)
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
+# ─── Top anchor ──────────────────────────────────────────────────────────────────
+st.markdown('<div id="top"></div>', unsafe_allow_html=True)
+
 # ─── Session State initialization ────────────────────────────────────────────────
 if "lang" not in st.session_state:
     st.session_state.lang = "fr"
@@ -806,7 +813,12 @@ with st.sidebar:
         )
 
     st.divider()
-    st.caption(t("version_info").format(version=VERSION, date=VERSION_DATE))
+    lang = st.session_state.get("lang", "fr")
+    notes = VERSION_NOTES.get(lang, VERSION_NOTES["fr"])
+    st.markdown(
+        t("version_info").format(version=VERSION, date=VERSION_DATE, notes=notes),
+        unsafe_allow_html=True,
+    )
 
 
 # ═════════════════════════════════════════════════════════════════════════════════
@@ -852,7 +864,7 @@ def page_simulator():
         # Adjust steps_data length if needed
         while len(st.session_state.steps_data) < nb_steps:
             st.session_state.steps_data.append({
-                "name": {"fr": f"Etape {len(st.session_state.steps_data) + 1}",
+                "name": {"fr": f"Étape {len(st.session_state.steps_data) + 1}",
                          "en": f"Step {len(st.session_state.steps_data) + 1}"},
                 "uph": 60, "availability": 0.90, "performance": 0.85, "yield": 0.95,
                 "nb_operators": 1, "dl_rate": 25.0, "voh_rate": 30.0, "foh_total": 50000,
@@ -1109,7 +1121,7 @@ def page_sensitivity():
     impacts = run_sensitivity(st.session_state.steps_data, st.session_state.volume)
 
     if not impacts:
-        st.warning("No parameters to analyze.")
+        st.warning(t("no_data"))
         return
 
     fig = build_tornado_chart(impacts, top_n=15)
@@ -1321,3 +1333,6 @@ elif st.session_state.nav_annex_idx == 1:
     page_about()
 else:
     page_home()
+
+# ─── Scroll-to-top button ───────────────────────────────────────────────────────
+st.markdown('<a href="#top" class="scroll-top">&#8679;</a>', unsafe_allow_html=True)

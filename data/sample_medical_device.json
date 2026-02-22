@@ -1,6 +1,6 @@
 {
   "name": {
-    "fr": "Capteur electrochimique medical",
+    "fr": "Capteur électrochimique médical",
     "en": "Electrochemical medical sensor"
   },
   "volume": 100000,
@@ -19,11 +19,11 @@
       "bom": [
         {"name": {"fr": "PCB nu", "en": "Bare PCB"}, "qty": 1, "price": 0.85, "scrap": 0.02},
         {"name": {"fr": "Composants CMS", "en": "SMD components"}, "qty": 1, "price": 1.20, "scrap": 0.03},
-        {"name": {"fr": "Pate a braser", "en": "Solder paste"}, "qty": 1, "price": 0.15, "scrap": 0.05}
+        {"name": {"fr": "Pâte à braser", "en": "Solder paste"}, "qty": 1, "price": 0.15, "scrap": 0.05}
       ]
     },
     {
-      "name": {"fr": "Assemblage mecanique", "en": "Mechanical assembly"},
+      "name": {"fr": "Assemblage mécanique", "en": "Mechanical assembly"},
       "uph": 60,
       "availability": 0.92,
       "performance": 0.90,
@@ -33,7 +33,7 @@
       "voh_rate": 30.0,
       "foh_total": 80000,
       "bom": [
-        {"name": {"fr": "Boitier plastique", "en": "Plastic housing"}, "qty": 1, "price": 0.65, "scrap": 0.01},
+        {"name": {"fr": "Boîtier plastique", "en": "Plastic housing"}, "qty": 1, "price": 0.65, "scrap": 0.01},
         {"name": {"fr": "Joint silicone", "en": "Silicone gasket"}, "qty": 1, "price": 0.18, "scrap": 0.02},
         {"name": {"fr": "Vis M2 inox", "en": "M2 stainless screws"}, "qty": 4, "price": 0.03, "scrap": 0.01}
       ]
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "name": {"fr": "Test electrique", "en": "Electrical test"},
+      "name": {"fr": "Test électrique", "en": "Electrical test"},
       "uph": 90,
       "availability": 0.93,
       "performance": 0.92,
@@ -65,7 +65,7 @@
       "foh_total": 60000,
       "bom": [
         {"name": {"fr": "Pointes de test", "en": "Test probes"}, "qty": 1, "price": 0.02, "scrap": 0.15},
-        {"name": {"fr": "Solution calibration", "en": "Calibration solution"}, "qty": 1, "price": 0.08, "scrap": 0.05}
+        {"name": {"fr": "Solution étalonnage", "en": "Calibration solution"}, "qty": 1, "price": 0.08, "scrap": 0.05}
       ]
     },
     {
@@ -79,9 +79,9 @@
       "voh_rate": 15.0,
       "foh_total": 40000,
       "bom": [
-        {"name": {"fr": "Boite carton", "en": "Cardboard box"}, "qty": 1, "price": 0.30, "scrap": 0.01},
+        {"name": {"fr": "Boîte carton", "en": "Cardboard box"}, "qty": 1, "price": 0.30, "scrap": 0.01},
         {"name": {"fr": "Notice IFU", "en": "IFU leaflet"}, "qty": 1, "price": 0.08, "scrap": 0.02},
-        {"name": {"fr": "Etiquette UDI", "en": "UDI label"}, "qty": 1, "price": 0.04, "scrap": 0.01}
+        {"name": {"fr": "Étiquette UDI", "en": "UDI label"}, "qty": 1, "price": 0.04, "scrap": 0.01}
       ]
     }
   ]

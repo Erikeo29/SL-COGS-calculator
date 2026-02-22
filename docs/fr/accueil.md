@@ -6,42 +6,42 @@ Bienvenue dans le **simulateur interactif de COGS** (Cost of Goods Sold) pour pr
 
 ## Qu'est-ce que le COGS ?
 
-Le COGS (Cost of Goods Sold) represente le **cout total de fabrication** d'un produit.
+Le COGS (Cost of Goods Sold) représente le **coût total de fabrication** d'un produit.
 Il inclut :
-- **Matieres premieres** : composants, sous-ensembles, consommables
-- **Main d'oeuvre directe** (DL) : operateurs sur ligne
-- **Frais generaux variables** (VOH) : energie, maintenance, consommables machine
-- **Frais generaux fixes** (FOH) : amortissements, loyer, encadrement
-- **Pertes de rendement** (Scrap) : cout des unites rejetees a chaque etape
+- **Matières premières** : composants, sous-ensembles, consommables
+- **Main d'œuvre directe** (DL) : opérateurs sur ligne
+- **Frais généraux variables** (VOH) : énergie, maintenance, consommables machine
+- **Frais généraux fixes** (FOH) : amortissements, loyer, encadrement
+- **Pertes de rendement** (Scrap) : coût des unités rejetées à chaque étape
 
 ---
 
-## Fonctionnalites
+## Fonctionnalités
 
-| Fonctionnalite | Description |
+| Fonctionnalité | Description |
 |----------------|-------------|
-| **Simulateur multi-etapes** | Modeliser N etapes sequentielles avec BOM, process et couts |
-| **Calcul en cascade** | Le rendement de chaque etape impacte le cout cumule |
-| **Analyse de sensibilite** | Identifier les parametres les plus impactants (tornado chart) |
-| **Scenarios what-if** | Comparer jusqu'a 3 scenarios vs la configuration de base |
+| **Simulateur multi-étapes** | Modéliser N étapes séquentielles avec BOM, process et coûts |
+| **Calcul en cascade** | Le rendement de chaque étape impacte le coût cumulé |
+| **Analyse de sensibilité** | Identifier les paramètres les plus impactants (tornado chart) |
+| **Scénarios what-if** | Comparer jusqu'à 3 scénarios vs la configuration de base |
 | **Prix et marge** | Calculateur bidirectionnel marge → prix ou prix → marge |
-| **Bilingue FR/EN** | Interface entierement traduite |
+| **Bilingue FR/EN** | Interface entièrement traduite |
 
 ---
 
-## Demarrage rapide
+## Démarrage rapide
 
-1. **Charger un exemple** : cliquez sur "Charger l'exemple" dans la barre laterale
+1. **Charger un exemple** : cliquez sur "Charger l'exemple" dans la barre latérale
 2. **Explorer le simulateur** : naviguez vers la page "Simulateur COGS"
-3. **Modifier les parametres** : ajustez volumes, rendements, BOM en temps reel
-4. **Analyser** : consultez les graphiques et le tableau de detail par etape
+3. **Modifier les paramètres** : ajustez volumes, rendements, BOM en temps réel
+4. **Analyser** : consultez les graphiques et le tableau de détail par étape
 
 ---
 
-## Modele de calcul
+## Modèle de calcul
 
-Le simulateur utilise un modele de **cascade multi-etapes** ou le cout de chaque etape
-est "charge" par les pertes de rendement (yield) de cette etape :
+Le simulateur utilise un modèle de **cascade multi-étapes** où le coût de chaque étape
+est "chargé" par les pertes de rendement (yield) de cette étape :
 
 $$\text{Yielded Cost}_i = \frac{\text{Yielded Cost}_{i-1} + \text{Cost Added}_i}{\text{Yield}_i}$$
 
