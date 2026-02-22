@@ -687,8 +687,20 @@ if os.path.exists(CSS_PATH):
     css = load_custom_css(CSS_PATH)
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
-# ─── Top anchor ──────────────────────────────────────────────────────────────────
-st.markdown('<div id="top"></div>', unsafe_allow_html=True)
+# ─── Navigation buttons + top anchor ────────────────────────────────────────────
+st.markdown("""
+<a href="#top" class="nav-button back-to-top" title="Retour en haut / Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+    </svg>
+</a>
+<a href="#bottom" class="nav-button scroll-to-bottom" title="Aller en bas / Go to bottom">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M12 20l8-8h-5V4h-6v8H4z"/>
+    </svg>
+</a>
+<div id="top"></div>
+""", unsafe_allow_html=True)
 
 # ─── Session State initialization ────────────────────────────────────────────────
 if "lang" not in st.session_state:
@@ -1323,12 +1335,3 @@ else:
 
 # ─── Bottom anchor ───────────────────────────────────────────────────────────────
 st.markdown('<div id="bottom"></div>', unsafe_allow_html=True)
-
-# ─── Scroll nav (up/down) ───────────────────────────────────────────────────────
-st.markdown(
-    '<div class="scroll-nav">'
-    '<a href="#top" title="Haut">&#9650;</a>'
-    '<a href="#bottom" title="Bas">&#9660;</a>'
-    '</div>',
-    unsafe_allow_html=True,
-)
