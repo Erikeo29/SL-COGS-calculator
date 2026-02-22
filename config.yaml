@@ -1,0 +1,16 @@
+cookie:
+  expiry_days: 30
+  key: cogs_calc_secret_key_change_me
+  name: cogs_calc_auth
+
+credentials:
+  usernames:
+    LXS:
+      email: lxs@example.com
+      failed_login_attempts: 0
+      first_name: LXS
+      last_name: User
+      logged_in: false
+      password: $2b$12$qnXXggJi.Ie7886qQJhk/e9gVIUe7XMrPewlWwskQamA93YL0veFm
+      roles:
+        - admin

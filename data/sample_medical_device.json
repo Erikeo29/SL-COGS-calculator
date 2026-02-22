@@ -1,0 +1,88 @@
+{
+  "name": {
+    "fr": "Capteur electrochimique medical",
+    "en": "Electrochemical medical sensor"
+  },
+  "volume": 100000,
+  "currency": "EUR",
+  "steps": [
+    {
+      "name": {"fr": "SMT (montage en surface)", "en": "SMT (surface mount)"},
+      "uph": 120,
+      "availability": 0.90,
+      "performance": 0.87,
+      "yield": 0.98,
+      "nb_operators": 1,
+      "dl_rate": 25.0,
+      "voh_rate": 45.0,
+      "foh_total": 120000,
+      "bom": [
+        {"name": {"fr": "PCB nu", "en": "Bare PCB"}, "qty": 1, "price": 0.85, "scrap": 0.02},
+        {"name": {"fr": "Composants CMS", "en": "SMD components"}, "qty": 1, "price": 1.20, "scrap": 0.03},
+        {"name": {"fr": "Pate a braser", "en": "Solder paste"}, "qty": 1, "price": 0.15, "scrap": 0.05}
+      ]
+    },
+    {
+      "name": {"fr": "Assemblage mecanique", "en": "Mechanical assembly"},
+      "uph": 60,
+      "availability": 0.92,
+      "performance": 0.90,
+      "yield": 0.97,
+      "nb_operators": 2,
+      "dl_rate": 22.0,
+      "voh_rate": 30.0,
+      "foh_total": 80000,
+      "bom": [
+        {"name": {"fr": "Boitier plastique", "en": "Plastic housing"}, "qty": 1, "price": 0.65, "scrap": 0.01},
+        {"name": {"fr": "Joint silicone", "en": "Silicone gasket"}, "qty": 1, "price": 0.18, "scrap": 0.02},
+        {"name": {"fr": "Vis M2 inox", "en": "M2 stainless screws"}, "qty": 4, "price": 0.03, "scrap": 0.01}
+      ]
+    },
+    {
+      "name": {"fr": "Soudure / brasage", "en": "Soldering / brazing"},
+      "uph": 45,
+      "availability": 0.88,
+      "performance": 0.85,
+      "yield": 0.95,
+      "nb_operators": 1,
+      "dl_rate": 28.0,
+      "voh_rate": 50.0,
+      "foh_total": 95000,
+      "bom": [
+        {"name": {"fr": "Fil Sn/Ag 0.5mm", "en": "Sn/Ag wire 0.5mm"}, "qty": 1, "price": 0.22, "scrap": 0.08},
+        {"name": {"fr": "Flux no-clean", "en": "No-clean flux"}, "qty": 1, "price": 0.05, "scrap": 0.10}
+      ]
+    },
+    {
+      "name": {"fr": "Test electrique", "en": "Electrical test"},
+      "uph": 90,
+      "availability": 0.93,
+      "performance": 0.92,
+      "yield": 0.92,
+      "nb_operators": 1,
+      "dl_rate": 30.0,
+      "voh_rate": 35.0,
+      "foh_total": 60000,
+      "bom": [
+        {"name": {"fr": "Pointes de test", "en": "Test probes"}, "qty": 1, "price": 0.02, "scrap": 0.15},
+        {"name": {"fr": "Solution calibration", "en": "Calibration solution"}, "qty": 1, "price": 0.08, "scrap": 0.05}
+      ]
+    },
+    {
+      "name": {"fr": "Packaging final", "en": "Final packaging"},
+      "uph": 150,
+      "availability": 0.95,
+      "performance": 0.93,
+      "yield": 0.99,
+      "nb_operators": 1,
+      "dl_rate": 20.0,
+      "voh_rate": 15.0,
+      "foh_total": 40000,
+      "bom": [
+        {"name": {"fr": "Boite carton", "en": "Cardboard box"}, "qty": 1, "price": 0.30, "scrap": 0.01},
+        {"name": {"fr": "Notice IFU", "en": "IFU leaflet"}, "qty": 1, "price": 0.08, "scrap": 0.02},
+        {"name": {"fr": "Etiquette UDI", "en": "UDI label"}, "qty": 1, "price": 0.04, "scrap": 0.01}
+      ]
+    }
+  ]
+}

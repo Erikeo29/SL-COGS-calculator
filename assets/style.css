@@ -1,0 +1,48 @@
+/* Masquer elements Streamlit inutiles */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.stDeployButton {display: none;}
+[data-testid="stToolbar"] {display: none;}
+
+/* Titres */
+h1, h2, h3 {
+    color: #004b87;
+}
+
+/* --- Sidebar --- */
+[data-testid="stSidebar"] .stRadio > div {
+    gap: 6px;
+}
+[data-testid="stSidebar"] hr {
+    margin: 4px 0;
+}
+
+/* --- Boutons Primary --- */
+button[kind="primary"] {
+    background-color: #004b87 !important;
+    color: white !important;
+    border: 1px solid #004b87 !important;
+}
+button[kind="primary"]:hover {
+    background-color: #003366 !important;
+}
+
+/* --- Metrics --- */
+[data-testid="stMetric"] {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    border-left: 4px solid #004b87;
+}
+
+/* --- Masquer favicons des liens externes --- */
+a[href^="http"]::before,
+a[href^="https"]::before {
+    display: none !important;
+    content: none !important;
+}
+.stMarkdown a img,
+[data-testid="stMarkdownContainer"] a img {
+    display: none !important;
+}
