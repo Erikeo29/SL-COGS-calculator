@@ -1321,5 +1321,14 @@ elif st.session_state.nav_annex_idx == 0:
 else:
     page_home()
 
-# ─── Scroll-to-top button ───────────────────────────────────────────────────────
-st.markdown('<a href="#top" class="scroll-top">&#8679;</a>', unsafe_allow_html=True)
+# ─── Bottom anchor ───────────────────────────────────────────────────────────────
+st.markdown('<div id="bottom"></div>', unsafe_allow_html=True)
+
+# ─── Scroll nav (up/down) ───────────────────────────────────────────────────────
+st.markdown(
+    '<div class="scroll-nav">'
+    '<a href="#top" title="Haut">&#9650;</a>'
+    '<a href="#bottom" title="Bas">&#9660;</a>'
+    '</div>',
+    unsafe_allow_html=True,
+)
