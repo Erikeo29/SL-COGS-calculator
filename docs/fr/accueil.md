@@ -47,3 +47,21 @@ $$\text{Yielded Cost}_i = \frac{\text{Yielded Cost}_{i-1} + \text{Cost Added}_i}
 
 Le **RTY** (Rolled Throughput Yield) est le produit de tous les rendements :
 $$RTY = \prod_{i=1}^{N} \text{Yield}_i$$
+
+---
+
+## Stack technique
+
+| Composant | Technologie |
+|-----------|-------------|
+| Frontend | [Streamlit](https://streamlit.io) |
+| Graphiques | [Plotly](https://plotly.com) |
+| Calcul | [NumPy](https://numpy.org), [Pandas](https://pandas.pydata.org) |
+| Authentification | [Streamlit-Authenticator](https://github.com/mkhorasani/Streamlit-Authenticator) |
+| Déploiement | Streamlit Community Cloud |
+
+---
+
+## Licence
+
+Usage interne uniquement.

@@ -75,12 +75,12 @@ TRANSLATIONS = {
         "annex_header": "Annexes",
         "gen_pages": ["Accueil", "Simulateur COGS"],
         "study_pages": ["Analyse de sensibilité", "Scénarios what-if"],
-        "annex_pages": ["Méthodologie", "À propos"],
+        "annex_pages": ["Méthodologie"],
         "lang_fr": "Français",
         "lang_en": "English",
         "load_sample": "Charger l'exemple",
         "load_sample_help": "Capteur électrochimique médical (5 étapes)",
-        "version_info": "**Revision {version}** {date} — {notes} — © Eric QUEAU — Licence MIT",
+        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU — Licence MIT",
         # Global params
         "global_params": "Paramètres globaux",
         "volume": "Volume annuel",
@@ -176,12 +176,12 @@ TRANSLATIONS = {
         "annex_header": "Annexes",
         "gen_pages": ["Home", "COGS Simulator"],
         "study_pages": ["Sensitivity analysis", "What-if scenarios"],
-        "annex_pages": ["Methodology", "About"],
+        "annex_pages": ["Methodology"],
         "lang_fr": "Francais",
         "lang_en": "English",
         "load_sample": "Load example",
         "load_sample_help": "Electrochemical medical sensor (5 steps)",
-        "version_info": "**Revision {version}** {date} — {notes} — © Eric QUEAU — Licence MIT",
+        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU — Licence MIT",
         # Global params
         "global_params": "Global parameters",
         "volume": "Annual volume",
@@ -1305,17 +1305,6 @@ def page_methodology():
         st.error(t("no_data"))
 
 
-# ─── PAGE: About ─────────────────────────────────────────────────────────────────
-def page_about():
-    lang = st.session_state.get("lang", "fr")
-    path = os.path.join(DOC_PATH, lang, "about.md")
-    if os.path.exists(path):
-        content = load_file_content(path)
-        st.markdown(content, unsafe_allow_html=True)
-    else:
-        st.error(t("no_data"))
-
-
 # ═════════════════════════════════════════════════════════════════════════════════
 #  ROUTING
 # ═════════════════════════════════════════════════════════════════════════════════
@@ -1329,8 +1318,6 @@ elif st.session_state.nav_study_idx == 1:
     page_scenarios()
 elif st.session_state.nav_annex_idx == 0:
     page_methodology()
-elif st.session_state.nav_annex_idx == 1:
-    page_about()
 else:
     page_home()
 
