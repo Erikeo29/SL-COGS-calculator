@@ -80,7 +80,7 @@ TRANSLATIONS = {
         "lang_en": "English",
         "load_sample": "Charger l'exemple",
         "load_sample_help": "Capteur électrochimique médical (5 étapes)",
-        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU — Licence MIT",
+        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU - Licence MIT",
         # Global params
         "global_params": "Paramètres globaux",
         "volume": "Volume annuel",
@@ -181,7 +181,7 @@ TRANSLATIONS = {
         "lang_en": "English",
         "load_sample": "Load example",
         "load_sample_help": "Electrochemical medical sensor (5 steps)",
-        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU — Licence MIT",
+        "version_info": "**Revision {version}** {date}<br>{notes}<br>© Eric QUEAU - Licence MIT",
         # Global params
         "global_params": "Global parameters",
         "volume": "Annual volume",

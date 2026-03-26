@@ -28,3 +28,8 @@ temp/
 
 # Zone.Identifier files (WSL)
 *.Zone.Identifier
+
+# Claude Code
+CLAUDE.md
+.claude/
+.plugin-config/
