@@ -1327,7 +1327,16 @@ _page_id = f"{st.session_state.nav_gen_idx}_{st.session_state.nav_study_idx}_{st
 if st.session_state.get("_last_page") != _page_id:
     st.session_state["_last_page"] = _page_id
     components.html(
-        '<script>window.parent.document.querySelector("section.main").scrollTo(0, 0);</script>',
+        (
+            '<script>'
+            'setTimeout(function(){'
+            'var e=window.parent.document;'
+            'var targets=["section.main","[data-testid=stAppViewContainer]",".main"];'
+            'targets.forEach(function(s){var el=e.querySelector(s);if(el)el.scrollTo(0,0);});'
+            'e.scrollingElement.scrollTo(0,0);'
+            '},1);'
+            '</script>'
+        ),
         height=0,
     )
 if st.session_state.nav_gen_idx == 0:
