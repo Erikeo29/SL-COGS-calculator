@@ -12,11 +12,33 @@ h1, h2, h3 {
 }
 
 /* --- Sidebar --- */
-[data-testid="stSidebar"] .stRadio > div {
-    gap: 6px;
-}
 [data-testid="stSidebar"] hr {
     margin: 4px 0;
+}
+
+/* --- Page links dans la sidebar (st.navigation) --- */
+.stPageLink {
+    margin-top: -0.3rem !important;
+    margin-bottom: -0.3rem !important;
+}
+.stPageLink a {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    border-left: 3px solid transparent !important;
+}
+.stPageLink a:hover {
+    background-color: rgba(0, 75, 135, 0.20) !important;
+    border-left-color: #004b87 !important;
+}
+.stPageLink:has(strong) a,
+.stPageLink:has(b) a {
+    background-color: rgba(0, 75, 135, 0.20) !important;
+    border-left-color: #004b87 !important;
+}
+
+/* Réduire l'espace sous les subheaders de la sidebar */
+[data-testid="stSidebar"] [data-testid="stSubheader"] {
+    margin-bottom: -10px;
 }
 
 /* --- Boutons Primary --- */

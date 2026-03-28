@@ -20,24 +20,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- Auto-scroll to top on page change ---
-import streamlit.components.v1 as _components
-_pid = f"{st.session_state.get('nav_gen_idx')}_{st.session_state.get('nav_study_idx')}_{st.session_state.get('nav_annex_idx')}"
-if st.session_state.get("_last_page") != _pid:
-    st.session_state["_last_page"] = _pid
-    _components.html(
-        '<script>'
-        'function scrollTop(){'
-        'var e=window.parent.document;'
-        'var targets=["section.main","[data-testid=stAppViewContainer]",".main"];'
-        'targets.forEach(function(s){var el=e.querySelector(s);if(el)el.scrollTo(0,0);});'
-        'e.scrollingElement.scrollTo(0,0);'
-        '}'
-        'scrollTop();setTimeout(scrollTop,100);setTimeout(scrollTop,300);'
-        '</script>',
-        height=0,
-    )
-
 # ─── Authentication ─────────────────────────────────────────────────────────────
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(ROOT_DIR, "config.yaml")
@@ -67,11 +49,11 @@ DATA_PATH = os.path.join(ROOT_DIR, "data")
 ASSETS_PATH = os.path.join(ROOT_DIR, "assets")
 CSS_PATH = os.path.join(ASSETS_PATH, "style.css")
 
-VERSION = "1.0.1"
-VERSION_DATE = "Feb 2026"
+VERSION = "1.1.0"
+VERSION_DATE = "Mar 2026"
 VERSION_NOTES = {
-    "fr": "Correction typographie FR, bouton retour en haut",
-    "en": "FR typography fix, scroll-to-top button",
+    "fr": "Migration navigation vers st.navigation()",
+    "en": "Navigation migration to st.navigation()",
 }
 
 # ─── Color palette ──────────────────────────────────────────────────────────────
@@ -724,12 +706,6 @@ st.markdown("""
 # ─── Session State initialization ────────────────────────────────────────────────
 if "lang" not in st.session_state:
     st.session_state.lang = "fr"
-if "nav_gen_idx" not in st.session_state:
-    st.session_state.nav_gen_idx = 0
-if "nav_study_idx" not in st.session_state:
-    st.session_state.nav_study_idx = None
-if "nav_annex_idx" not in st.session_state:
-    st.session_state.nav_annex_idx = None
 if "steps_data" not in st.session_state:
     st.session_state.steps_data = None
 if "volume" not in st.session_state:
@@ -738,118 +714,6 @@ if "currency" not in st.session_state:
     st.session_state.currency = "EUR"
 if "nb_steps" not in st.session_state:
     st.session_state.nb_steps = 3
-
-
-# ─── Navigation ─────────────────────────────────────────────────────────────────
-def set_nav(section: str, idx: int):
-    """Update navigation with mutual exclusion."""
-    if section == "gen":
-        st.session_state.nav_gen_idx = idx
-        st.session_state.nav_study_idx = None
-        st.session_state.nav_annex_idx = None
-    elif section == "study":
-        st.session_state.nav_gen_idx = None
-        st.session_state.nav_study_idx = idx
-        st.session_state.nav_annex_idx = None
-    elif section == "annex":
-        st.session_state.nav_gen_idx = None
-        st.session_state.nav_study_idx = None
-        st.session_state.nav_annex_idx = idx
-
-
-# ─── Sidebar ─────────────────────────────────────────────────────────────────────
-with st.sidebar:
-    st.title(t("sidebar_title"))
-    authenticator.logout()
-    st.divider()
-
-    # Language toggle
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button(
-            t("lang_fr"),
-            type="primary" if st.session_state.lang == "fr" else "secondary",
-            use_container_width=True,
-        ):
-            st.session_state.lang = "fr"
-            st.rerun()
-    with col2:
-        if st.button(
-            t("lang_en"),
-            type="primary" if st.session_state.lang == "en" else "secondary",
-            use_container_width=True,
-        ):
-            st.session_state.lang = "en"
-            st.rerun()
-
-    st.divider()
-    st.subheader(t("nav_header"))
-
-    # General section
-    st.caption(f"**{t('gen_header')}**")
-    for i, page in enumerate(t("gen_pages")):
-        is_active = st.session_state.nav_gen_idx == i
-        if st.button(
-            page,
-            key=f"nav_gen_{i}",
-            type="primary" if is_active else "secondary",
-            use_container_width=True,
-        ):
-            set_nav("gen", i)
-            st.rerun()
-
-    # Studies section
-    st.caption(f"**{t('study_header')}**")
-    for i, page in enumerate(t("study_pages")):
-        is_active = st.session_state.nav_study_idx == i
-        if st.button(
-            page,
-            key=f"nav_study_{i}",
-            type="primary" if is_active else "secondary",
-            use_container_width=True,
-        ):
-            set_nav("study", i)
-            st.rerun()
-
-    # Annexes section
-    st.caption(f"**{t('annex_header')}**")
-    for i, page in enumerate(t("annex_pages")):
-        is_active = st.session_state.nav_annex_idx == i
-        if st.button(
-            page,
-            key=f"nav_annex_{i}",
-            type="primary" if is_active else "secondary",
-            use_container_width=True,
-        ):
-            set_nav("annex", i)
-            st.rerun()
-
-    st.divider()
-
-    # Load sample data
-    if st.button(t("load_sample"), help=t("load_sample_help"), use_container_width=True):
-        sample = load_sample_data()
-        sample_to_session(sample)
-        st.toast(t("data_loaded"))
-        st.rerun()
-
-    # Export
-    if st.session_state.steps_data is not None:
-        st.download_button(
-            label=t("export_json"),
-            data=session_to_json(),
-            file_name="cogs_export.json",
-            mime="application/json",
-            use_container_width=True,
-        )
-
-    st.divider()
-    lang = st.session_state.get("lang", "fr")
-    notes = VERSION_NOTES.get(lang, VERSION_NOTES["fr"])
-    st.markdown(
-        t("version_info").format(version=VERSION, date=VERSION_DATE, notes=notes),
-        unsafe_allow_html=True,
-    )
 
 
 # ═════════════════════════════════════════════════════════════════════════════════
@@ -1337,21 +1201,123 @@ def page_methodology():
 
 
 # ═════════════════════════════════════════════════════════════════════════════════
-#  ROUTING
+#  NAVIGATION (st.navigation + st.page_link)
 # ═════════════════════════════════════════════════════════════════════════════════
 
-if st.session_state.nav_gen_idx == 0:
-    page_home()
-elif st.session_state.nav_gen_idx == 1:
-    page_simulator()
-elif st.session_state.nav_study_idx == 0:
-    page_sensitivity()
-elif st.session_state.nav_study_idx == 1:
-    page_scenarios()
-elif st.session_state.nav_annex_idx == 0:
-    page_methodology()
-else:
-    page_home()
+# Translated page names (depend on current language)
+gen_pages = t("gen_pages")
+study_pages = t("study_pages")
+annex_pages = t("annex_pages")
+
+# Build st.Page objects with stable url_path
+_GEN_PAGES = [
+    st.Page(func, title=title, url_path=url, default=(url == "home"))
+    for func, title, url in zip(
+        [page_home, page_simulator],
+        gen_pages,
+        ["home", "simulator"],
+    )
+]
+_STUDY_PAGES = [
+    st.Page(func, title=title, url_path=url)
+    for func, title, url in zip(
+        [page_sensitivity, page_scenarios],
+        study_pages,
+        ["sensitivity", "what-if"],
+    )
+]
+_ANNEX_PAGES = [
+    st.Page(func, title=title, url_path=url)
+    for func, title, url in zip(
+        [page_methodology],
+        annex_pages,
+        ["methodology"],
+    )
+]
+
+# Routing via st.navigation (hidden - custom sidebar below)
+nav = st.navigation(
+    {
+        t("gen_header"): _GEN_PAGES,
+        t("study_header"): _STUDY_PAGES,
+        t("annex_header"): _ANNEX_PAGES,
+    },
+    position="hidden",
+)
+
+# ─── Sidebar ─────────────────────────────────────────────────────────────────────
+with st.sidebar:
+    st.title(t("sidebar_title"))
+    authenticator.logout()
+    st.divider()
+
+    # Language toggle
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button(
+            t("lang_fr"),
+            type="primary" if st.session_state.lang == "fr" else "secondary",
+            use_container_width=True,
+        ):
+            st.session_state.lang = "fr"
+            st.rerun()
+    with col2:
+        if st.button(
+            t("lang_en"),
+            type="primary" if st.session_state.lang == "en" else "secondary",
+            use_container_width=True,
+        ):
+            st.session_state.lang = "en"
+            st.rerun()
+
+    st.divider()
+
+    # Custom sidebar with st.page_link
+    _GROUPS = [
+        (t("gen_header"), _GEN_PAGES),
+        (t("study_header"), _STUDY_PAGES),
+        (t("annex_header"), _ANNEX_PAGES),
+    ]
+
+    for header, pages in _GROUPS:
+        st.subheader(header)
+        for page in pages:
+            is_active = page is nav
+            st.page_link(
+                page,
+                label=f"**{page.title}**" if is_active else page.title,
+                icon=":material/arrow_right:" if is_active else None,
+                use_container_width=True,
+            )
+        st.markdown("---")
+
+    # Load sample data
+    if st.button(t("load_sample"), help=t("load_sample_help"), use_container_width=True):
+        sample = load_sample_data()
+        sample_to_session(sample)
+        st.toast(t("data_loaded"))
+        st.rerun()
+
+    # Export
+    if st.session_state.steps_data is not None:
+        st.download_button(
+            label=t("export_json"),
+            data=session_to_json(),
+            file_name="cogs_export.json",
+            mime="application/json",
+            use_container_width=True,
+        )
+
+    st.divider()
+    lang = st.session_state.get("lang", "fr")
+    notes = VERSION_NOTES.get(lang, VERSION_NOTES["fr"])
+    st.markdown(
+        t("version_info").format(version=VERSION, date=VERSION_DATE, notes=notes),
+        unsafe_allow_html=True,
+    )
+
+# Run the selected page
+nav.run()
 
 # ─── Bottom anchor ───────────────────────────────────────────────────────────────
 st.markdown('<div id="bottom"></div>', unsafe_allow_html=True)
