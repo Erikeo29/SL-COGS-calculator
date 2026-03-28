@@ -70,6 +70,8 @@ TRANSLATIONS = {
     "fr": {
         # Sidebar / Nav
         "sidebar_title": "COGS Calculator",
+        "title": "Calculateur COGS manufacturing",
+        "hero_subtitle": "Simulation de coûts de fabrication, rendement en cascade et analyse de sensibilité",
         "nav_header": "Navigation",
         "gen_header": "Général",
         "study_header": "Études",
@@ -171,6 +173,8 @@ TRANSLATIONS = {
     "en": {
         # Sidebar / Nav
         "sidebar_title": "COGS Calculator",
+        "title": "COGS manufacturing calculator",
+        "hero_subtitle": "Manufacturing cost simulation, cascade yield and sensitivity analysis",
         "nav_header": "Navigation",
         "gen_header": "General",
         "study_header": "Studies",
@@ -722,10 +726,20 @@ if "nb_steps" not in st.session_state:
 
 # ─── PAGE: Home ──────────────────────────────────────────────────────────────────
 def page_home():
+    st.markdown(f"""
+    <div class="hero-banner">
+        <h1>{t("title")}</h1>
+        <p>{t("hero_subtitle")}</p>
+    </div>
+    """, unsafe_allow_html=True)
     lang = st.session_state.get("lang", "fr")
     path = os.path.join(DOC_PATH, lang, "accueil.md")
     if os.path.exists(path):
         content = load_file_content(path)
+        # Retirer le h1 du markdown (remplacé par le hero banner)
+        lines = content.split("\n")
+        if lines and lines[0].startswith("# "):
+            content = "\n".join(lines[1:])
         st.markdown(content, unsafe_allow_html=True)
     else:
         st.error(t("no_data"))
